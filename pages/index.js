@@ -3,6 +3,62 @@ import Head from "next/head";
 import classNames from "classnames";
 import Particles from "../components/Particles";
 import Tilt from "react-parallax-tilt";
+import FluidAnimation from "react-fluid-animation";
+import { motion } from "framer-motion";
+
+const easing = [0.6, -0.05, 0.01, 0.99];
+
+const fadeIn1 = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: easing,
+    },
+  },
+};
+
+const fadeIn2 = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1.5,
+      ease: easing,
+    },
+  },
+};
+
+const fadeIn3 = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 2,
+      ease: easing,
+    },
+  },
+};
+
+const fadeIn4 = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 2.5,
+      ease: easing,
+    },
+  },
+};
 
 const LinkToSection = ({ title, href, children }) => (
   <a
@@ -64,7 +120,7 @@ export default function Home() {
   return (
     <div className="bg-blueGray-900">
       <Head>
-        <title className="font-semibold">Raksha - Portfolio</title>
+        <title className="font-semibold"> Raksha | Portfolio </title>
         <link
           rel="icon"
           width="283"
@@ -74,7 +130,6 @@ export default function Home() {
           href="/raksha.png"
         />
       </Head>
-
       <div className="min-h-screen flex flex-col justify-center relative">
         {isMobile !== undefined ? (
           <Particles
@@ -167,7 +222,7 @@ export default function Home() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
               name="html5"
-              className="w-12 h-12"
+              className="w-12 h-10"
             >
               <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531V9.75z" />
             </svg>
@@ -206,6 +261,29 @@ export default function Home() {
         </div>
       </div>
 
+      <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
+        <motion.div variants={fadeIn4}>
+          <div className={containerClasses} id="achievements">
+            <SectionTitle accentText="04" title="Achievements" />
+            <div className="text-body-container">
+              <p>Not many as of now hehe</p>
+            </div>
+            <div className="h-8 lg:h-12" />
+            <div className="flex flex-wrap md:-mx-6">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <LinkCard title="Theervu - Pattarai Hackathon" link="">
+                  Culpa exercitation qui officia sit cillum duis ipsum labore
+                  magna nisi Lorem occaecat et eu. Cillum anim ea nulla nostrud
+                  adipisicing consectetur.
+                </LinkCard>
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
       <div className={containerClasses} id="achievements">
         <SectionTitle accentText="04" title="Achievements" />
         <div className="text-body-container">
@@ -213,11 +291,21 @@ export default function Home() {
         </div>
         <div className="h-8 lg:h-12" />
         <div className="flex flex-wrap md:-mx-6">
-          <LinkCard title="Theervu - Pattarai Hackathon" link="">
-            Culpa exercitation qui officia sit cillum duis ipsum labore magna
-            nisi Lorem occaecat et eu. Cillum anim ea nulla nostrud adipisicing
-            consectetur.
-          </LinkCard>
+          <motion.div
+            drag
+            dragConstraints={{
+              top: -50,
+              left: -50,
+              right: 50,
+              bottom: 50,
+            }}
+          >
+            <LinkCard title="Theervu - Pattarai Hackathon" link="">
+              Culpa exercitation qui officia sit cillum duis ipsum labore magna
+              nisi Lorem occaecat et eu. Cillum anim ea nulla nostrud
+              adipisicing consectetur.
+            </LinkCard>
+          </motion.div>
         </div>
       </div>
 
@@ -280,12 +368,19 @@ export default function Home() {
             Instagram
           </a>
         </div>
+        <div className="text-body-container py-3">
+          <p>Drop into my Discord PM!</p>
+        </div>
+        <iframe
+          className="w-full py-3 border-0"
+          height="400px"
+          src="https://titanembeds.com/embed/812595628143411250?css=24&scrollbartheme=rounded-dots-dark&noscroll=true&theme=MetroEdge"
+        ></iframe>
       </div>
 
-      <div className="h-8 md:h-12 lg:h-16" />
-
+      {/* <div className="h-8 md:h-12 lg:h-16  " />
       <div className={lastContainerClasses}>
-        <div className="font-mono text-blueGray-400 text-xs md:text-sm lg:text-base">
+        <div className="font-mono text-blueGray-400 text-xs md:text-sm lg:text-base ">
           This site is built with{" "}
           <a className="link" href="https://nextjs.org/" target="_blank">
             Next.js
@@ -304,7 +399,8 @@ export default function Home() {
           </a>
           .
         </div>
-      </div>
+      </div> */}
+      <FluidAnimation style={{ height: "60%" }} />
     </div>
   );
 }

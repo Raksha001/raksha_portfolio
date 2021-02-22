@@ -5,8 +5,10 @@ module.exports = {
   purge: [
     "./pages/**/*.js",
     "./components/**/*.js",
+    "./Navbar/**/*.js",
     "./pages/**/*.ts",
     "./components/**/*.ts",
+    "./Navbar/**/*.ts",
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
