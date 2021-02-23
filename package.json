@@ -21,6 +21,7 @@
     "react-fluid-animation": "^1.0.1",
     "react-parallax-tilt": "^1.4.69",
     "react-particles-js": "^3.4.1",
+    "react-tooltip": "^4.2.14",
     "tailwindcss": "^2.0.2",
     "tailwindcss-animatecss": "^1.0.7",
     "twin.macro": "^2.0.7"
