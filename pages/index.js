@@ -140,10 +140,10 @@ export default function Home() {
             <div className="h-4 sm:h-0" />
             <div className="text-body-container">
               <LinkToSection title="About Me" href="#about">
-                Itz me r_a_k_s_h_a.
+                Front-End Developer | Designer | Freelancer
               </LinkToSection>
               <LinkToSection title="Skillsets" href="#skillsets">
-                Click to checkout my skills!.
+                Click to checkout my skills!
               </LinkToSection>
               <LinkToSection title="Projects" href="#projects">
                 I'm currently working on Project Cortex.
@@ -479,7 +479,7 @@ export default function Home() {
         <CitySvg />
         <div className={lastContainerClasses}>
           <div className="font-mono text-blueGray-400 text-xs md:text-sm lg:text-base ">
-            ©Raksha - 2021.Website Under - Construction
+            ©Raksha - 2021. Website Under - Construction
           </div>
         </div>
       </div>
