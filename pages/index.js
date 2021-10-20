@@ -143,14 +143,14 @@ export default function Home() {
                 Itz me r_a_k_s_h_a.
               </LinkToSection>
               <LinkToSection title="Skillsets" href="#skillsets">
-                My true skills are eating and sleeping.
+                Click to checkout my skills!.
               </LinkToSection>
               <LinkToSection title="Projects" href="#projects">
-                I'm currently working on Project Caliditas.
+                I'm currently working on Project Cortex.
               </LinkToSection>
-              <LinkToSection title="Achievements" href="#achievements">
+              {/* <LinkToSection title="Achievements" href="#achievements">
                 I'm a 24/7 awesome eating and sleeping etudiant.
-              </LinkToSection>
+              </LinkToSection> */}
               <LinkToSection title="Education" href="#education">
                 I'm currently a student at Loyola Icam College of Engineering
                 and Technology, where I'm part of this amazing club Pattarai.
@@ -350,7 +350,7 @@ export default function Home() {
           </div>
         </div>
 
-        <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
+        {/* <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
           <motion.div variants={fadeIn4}>
             <div className={containerClasses} id="achievements">
               <SectionTitle accentText="04" title="Achievements" />
@@ -375,12 +375,12 @@ export default function Home() {
               </div>
             </div>
           </motion.div>
-        </motion.div>
+        </motion.div> */}
 
         <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
           <motion.div variants={fadeIn4}>
             <div className={containerClasses} id="education">
-              <SectionTitle accentText="05" title="Education" />
+              <SectionTitle accentText="04" title="Education" />
               <div className="text-body-container">
                 <p>
                   I'm currently a student at Loyola Icam College of Engineering
@@ -432,7 +432,7 @@ export default function Home() {
         </motion.div>
 
         <div className={containerClasses} id="contact">
-          <SectionTitle accentText="06" title="Contact Me" />
+          <SectionTitle accentText="05" title="Contact Me" />
           <div className="font-mono text-blueGray-400 sm:text-lg md:text-xl">
             <a
               className="link"
@@ -479,7 +479,7 @@ export default function Home() {
         <CitySvg />
         <div className={lastContainerClasses}>
           <div className="font-mono text-blueGray-400 text-xs md:text-sm lg:text-base ">
-            ©Raksha - 2021.
+            ©Raksha - 2021.Website Under - Construction
           </div>
         </div>
       </div>
