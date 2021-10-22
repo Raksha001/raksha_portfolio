@@ -97,6 +97,21 @@ const SkillsGrid =
   "grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-5 justify-center";
 
 export default function Home() {
+  //Title change
+  useEffect(() => {
+    const pageTitle = document.title;
+    const inactiveMessage = "Come Back 😔";
+    document.addEventListener("visibilitychange", function (e) {
+      const isPageActive = !document.hidden;
+
+      if (!isPageActive) {
+        document.title = inactiveMessage;
+      } else {
+        document.title = pageTitle;
+      }
+    });
+  }, []);
+
   const [isMobile, setIsMobile] = useState(undefined);
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
