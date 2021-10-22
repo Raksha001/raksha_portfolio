@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import ReactTooltip from "react-tooltip";
 import AnimatedCursor from "react-animated-cursor";
 import CitySvg from "../components/CitySvg";
+import dynamic from "next/dynamic";
 
 const easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -100,10 +101,9 @@ export default function Home() {
   //Title change
   useEffect(() => {
     const pageTitle = document.title;
-    const inactiveMessage = "Come Back 😔";
+    const inactiveMessage = "Come Back... 😔";
     document.addEventListener("visibilitychange", function (e) {
       const isPageActive = !document.hidden;
-
       if (!isPageActive) {
         document.title = inactiveMessage;
       } else {
@@ -116,6 +116,10 @@ export default function Home() {
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
   }, []);
+
+  const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
+    ssr: false,
+  });
 
   return (
     <>
@@ -131,18 +135,8 @@ export default function Home() {
             href="/raksha.png"
           />
         </Head>
+
         <div className="min-h-screen flex flex-col justify-center relative">
-          {/* if (typeof window !== "undefined"){" "}
-          {
-            <AnimatedCursor
-              innerSize={8}
-              outerSize={6}
-              color="20, 184, 166"
-              outerAlpha={0.2}
-              innerScale={0.7}
-              outerScale={5}
-            />
-          } */}
           {isMobile !== undefined ? (
             <Particles
               canvasClassName="block bg-blueGray-900"
@@ -150,6 +144,14 @@ export default function Home() {
               isMobile={isMobile}
             />
           ) : null}
+          <AnimatedCursor
+            innerSize={8}
+            outerSize={7}
+            color="20, 184, 166"
+            outerAlpha={0.2}
+            innerScale={0.7}
+            outerScale={5}
+          />
           <div className={classNames(containerClasses, "z-10")}>
             <SectionTitle accentText="Hello World! I'm" title="Raksha" />
             <div className="h-4 sm:h-0" />
