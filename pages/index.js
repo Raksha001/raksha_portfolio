@@ -101,7 +101,7 @@ export default function Home() {
   //Title change
   useEffect(() => {
     const pageTitle = document.title;
-    const inactiveMessage = "Come Back... 😔";
+    const inactiveMessage = "Come Back 😔";
     document.addEventListener("visibilitychange", function (e) {
       const isPageActive = !document.hidden;
       if (!isPageActive) {
@@ -125,7 +125,7 @@ export default function Home() {
     <>
       <div className="bg-blueGray-900">
         <Head>
-          <title className="font-semibold"> Raksha | Portfolio </title>
+          <title className="font-semibold"> Raksha | Portfolio ✨ </title>
           <link
             rel="icon"
             width="283"
