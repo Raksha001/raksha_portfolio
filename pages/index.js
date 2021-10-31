@@ -3,12 +3,14 @@ import Head from "next/head";
 import classNames from "classnames";
 import Particles from "../components/Particles";
 import Tilt from "react-parallax-tilt";
-import FluidAnimation from "react-fluid-animation";
 import { motion } from "framer-motion";
 import ReactTooltip from "react-tooltip";
-import AnimatedCursor from "react-animated-cursor";
 import CitySvg from "../components/CitySvg";
-import dynamic from "next/dynamic";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 
 const easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -30,7 +32,7 @@ const LinkToSection = ({ title, href, children }) => (
     href={href}
     className="block sm:text-lg lg:text-xl max-w-prose leading-relaxed group"
   >
-    <span className="group-hover:text-teal-300 text-accent uppercase font-mono">
+    <span className="group-hover:text-teal-300 text-accent uppercase ">
       {title}
     </span>
     <br />
@@ -47,9 +49,7 @@ const lastContainerClasses =
 
 const SectionTitle = ({ accentText, title }) => (
   <>
-    <span className="text-xl xl:text-2xl text-accent font-mono">
-      {accentText}
-    </span>
+    <span className="text-xl xl:text-2xl text-accent ">{accentText}</span>
     <div className="lg:h-4" />
     <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl text-white font-semibold lg:-ml-1 xl:-ml-1">
       {title}
@@ -66,7 +66,7 @@ const LinkCard = ({ title, link, children }) => (
       target="_blank"
       className="flex flex-col border border-blueGray-800 hover:border-accent hover:bg-blueGray-800 group p-6"
     >
-      <h2 className="text-accent font-mono text-xl mb-4 group-hover:text-teal-200">
+      <h2 className="text-accent  text-xl mb-4 group-hover:text-teal-200">
         {title}
       </h2>
       <p className="text-blueGray-400 group-hover:text-blueGray-200">
@@ -117,15 +117,11 @@ export default function Home() {
     setIsMobile(window.innerWidth <= 768);
   }, []);
 
-  const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
-    ssr: false,
-  });
-
   return (
     <>
       <div className="bg-blueGray-900">
         <Head>
-          <title className="font-semibold"> Raksha | Portfolio ✨ </title>
+          <title className="font-semibold"> Raksha | Portfolio 😀 </title>
           <link
             rel="icon"
             width="283"
@@ -144,14 +140,6 @@ export default function Home() {
               isMobile={isMobile}
             />
           ) : null}
-          <AnimatedCursor
-            innerSize={8}
-            outerSize={7}
-            color="20, 184, 166"
-            outerAlpha={0.2}
-            innerScale={0.7}
-            outerScale={5}
-          />
           <div className={classNames(containerClasses, "z-10")}>
             <SectionTitle accentText="Hello World! I'm" title="Raksha" />
             <div className="h-4 sm:h-0" />
@@ -163,17 +151,20 @@ export default function Home() {
                 Click to checkout my skills!
               </LinkToSection>
               <LinkToSection title="Projects" href="#projects">
-                I'm currently working on Project Cortex.
+                Working on Project Cortex - Club ERP.
+              </LinkToSection>
+              <LinkToSection title="Experience" href="#experience">
+                Currently Director of Human Resources at Licet Pattarai.
               </LinkToSection>
               {/* <LinkToSection title="Achievements" href="#achievements">
                 I'm a 24/7 awesome eating and sleeping etudiant.
               </LinkToSection> */}
               <LinkToSection title="Education" href="#education">
-                I'm currently a student at Loyola Icam College of Engineering
-                and Technology, where I'm part of this amazing club Pattarai.
+                A student at Loyola Icam College of Engineering and Technology,
+                where I'm part of this amazing club Pattarai.
               </LinkToSection>
               <LinkToSection title="Contact" href="#contact">
-                <div className="font-mono text-blueGray-400 sm:text-lg md:text-xl">
+                <div className=" text-blueGray-400 sm:text-lg md:text-xl">
                   <a
                     className="link"
                     href="mailto:raksha.23it@licet.ac.in"
@@ -247,6 +238,8 @@ export default function Home() {
                 data="M75.701 65.603c-2.334-.768-5.694-.603-10.08-.603h-17.621v23h18.844c2.944 0 5.012-.315 6.203-.535 2.099-.376 3.854-1.104 5.264-1.982 1.409-.876 2.568-2.205 3.478-3.881.908-1.676 1.363-3.637 1.363-5.83 0-2.568-.658-4.54-1.975-6.436-1.316-1.896-3.141-2.965-5.476-3.733zM73.282 55.087c2.317-.688 4.064-1.89 5.239-3.487 1.176-1.598 1.763-3.631 1.763-6.044 0-2.286-.549-4.314-1.646-6.054s-2.662-2.413-4.699-3.056c-2.037-.641-5.53-.446-10.48-.446h-15.459v20h16.587c4.042 0 6.939-.38 8.695-.913zM126 18.625c0-9.182-7.443-16.625-16.625-16.625h-91.75c-9.182 0-16.625 7.443-16.625 16.625v91.75c0 9.182 7.443 16.625 16.625 16.625h91.75c9.182 0 16.625-7.443 16.625-16.625v-91.75zm-35.447 66.12c-1.362 2.773-3.047 4.911-5.052 6.415-2.006 1.504-4.521 2.78-7.544 3.548-3.022.769-6.728 1.292-11.113 1.292h-27.844v-69h27.42c5.264 0 9.485.609 12.665 2.002 3.181 1.395 5.671 3.497 7.474 6.395 1.801 2.898 2.702 5.907 2.702 9.071 0 2.945-.8 5.708-2.397 8.308-1.598 2.602-4.011 4.694-7.237 6.292 4.166 1.222 7.37 3.304 9.61 6.248 2.24 2.945 3.36 6.422 3.36 10.432 0 3.227-.681 6.225-2.044 8.997z"
               /> */}
               <SkillCard
+                height="300px"
+                width="300px"
                 tooltip="PHP"
                 data="M17.25,7.5c-8.95,0-16,3.8-16,8.65s7,8.65,16,8.65,16-3.8,16-8.65S26.2,7.5,17.25,7.5Zm-1.66,2.66h1.75l-.56,2.67h1.56a3,3,0,0,1,2,.48A1.7,1.7,0,0,1,20.7,15L20,18.15H18.24l.63-2.94a1,1,0,0,0-.09-.83,1.2,1.2,0,0,0-.87-.22h-1.4l-.84,4H13.92ZM7.93,12.83h3.55a2.16,2.16,0,0,1,2.32,2.82c-.47,2-1.71,2.5-4,2.5H8.7l-.35,2H6.59Zm14,0h3.55a2.15,2.15,0,0,1,2.31,2.82c-.46,2-1.71,2.5-4,2.5h-1.1l-.35,2H20.56ZM9.44,14.16l-.5,2.66h1.14c1,0,1.9-.11,2.05-1.58.06-.57-.17-1.08-1.31-1.08Zm14,0-.5,2.66h1.13c1,0,1.9-.11,2.06-1.58.06-.57-.18-1.08-1.32-1.08Z"
               />
@@ -261,6 +254,8 @@ export default function Home() {
               data="M5.062 12h3.475c1.804 0 2.888-.908 2.888-2.396 0-1.102-.761-1.916-1.904-2.034v-.1c.832-.14 1.482-.93 1.482-1.816 0-1.3-.955-2.11-2.542-2.11H5.062V12zm1.313-4.875V4.658h1.78c.973 0 1.542.457 1.542 1.237 0 .802-.604 1.23-1.764 1.23H6.375zm0 3.762V8.162h1.822c1.236 0 1.887.463 1.887 1.348 0 .896-.627 1.377-1.811 1.377H6.375z M0 4a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4zm4-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3H4z"
             /> */}
               <SkillCard
+                height="300px"
+                width="300px"
                 tooltip="PYTHON"
                 data="M 16 5 C 11.011719 5 11 7 11 7 L 11 11 L 17 11 L 17 12 L 7 12 C 7 12 4 11.539063 4 17 C 4 22.460938 7 22 7 22 L 10 22 L 10 20.375 C 10 17.964844 11.964844 16 14.375 16 L 17.625 16 C 19.484375 16 21 15.484375 21 13.625 L 21 7 C 21 7 20.988281 5 16 5 Z M 13 7 C 13.550781 7 14 7.449219 14 8 C 14 8.550781 13.550781 9 13 9 C 12.449219 9 12 8.550781 12 8 C 12 7.449219 12.449219 7 13 7 Z M 22 11 L 22 13.625 C 22 16.035156 20.035156 17 17.625 17 L 14.375 17 C 12.515625 17 11 18.515625 11 20.375 L 11 26 C 11 26 11.0625 28 16 28 C 20.9375 28 21 26 21 26 L 21 22 L 15 22 L 15 21 L 25 21 C 25 21 28 21.503906 28 16 C 28 10.496094 25 11 25 11 Z M 19 24 C 19.550781 24 20 24.449219 20 25 C 20 25.550781 19.550781 26 19 26 C 18.449219 26 18 25.550781 18 25 C 18 24.449219 18.449219 24 19 24 Z"
               />
@@ -367,6 +362,170 @@ export default function Home() {
           </div>
         </div>
 
+        <div className={containerClasses} id="experience">
+          <SectionTitle accentText="03" title="Experience" />
+          <div className="text-body-container">
+            <p>
+              I'm always working on something new. Below are a few of my
+              favorite projects!
+            </p>
+          </div>
+          <div className="h-8 lg:h-12" />
+          <VerticalTimeline>
+            <VerticalTimelineElement
+              contentStyle={{
+                background: "#1E293B",
+                color: "#F1F5F9",
+                border: "#F1F5F9",
+              }}
+              contentArrowStyle={{ borderRight: "7px solid #F1F5F9" }}
+              date="Sept 2021 - Present"
+              iconStyle={{ background: "#0F172A", color: "#fff" }}
+            >
+              <h2 className="text-xl mb-1.5" style={{ color: "#14b8a6" }}>
+                Web Developer & IoT Engineer
+              </h2>
+              <h5 className="vertical-timeline-element-subtitle">Licet</h5>
+              <p>
+                Developing a smart parking system to know the available slots
+                for the parking and to get vehicle details using IOT and Web
+                development.
+              </p>
+            </VerticalTimelineElement>
+            <VerticalTimelineElement
+              contentStyle={{
+                background: "#1E293B",
+                color: "#F1F5F9",
+                border: "#F1F5F9",
+              }}
+              contentArrowStyle={{ borderRight: "7px solid #F1F5F9" }}
+              date="June 2021 - Present"
+              iconStyle={{ background: "#0F172A", color: "#fff" }}
+            >
+              <h2 className="text-xl mb-1.5" style={{ color: "#14b8a6" }}>
+                DMZ Member
+              </h2>
+              <h5 className="vertical-timeline-element-subtitle">Pattarai</h5>
+              <p>
+                Maintained Pattarai Utilities Bot and Event Websites
+                Responsiveness.
+              </p>
+            </VerticalTimelineElement>
+            <VerticalTimelineElement
+              contentStyle={{
+                background: "#1E293B",
+                color: "#F1F5F9",
+                border: "#F1F5F9",
+              }}
+              contentArrowStyle={{ borderRight: "7px solid #F1F5F9" }}
+              date="Apr 2021 - Present"
+              iconStyle={{ background: "#0F172A", color: "#fff" }}
+            >
+              <h2 className="text-xl mb-1.5" style={{ color: "#14b8a6" }}>
+                Director of Human Resources
+              </h2>
+              <h5 className="vertical-timeline-element-subtitle">Pattarai</h5>
+              <p>Managing the overall HR functions for the club.</p>
+            </VerticalTimelineElement>
+            <VerticalTimelineElement
+              contentStyle={{
+                background: "#1E293B",
+                color: "#F1F5F9",
+                border: "#F1F5F9",
+              }}
+              contentArrowStyle={{ borderRight: "7px solid #F1F5F9" }}
+              date="Mar 2021 - May 2021"
+              iconStyle={{ background: "#0F172A", color: "#fff" }}
+            >
+              <h2 className="text-xl mb-1.5" style={{ color: "#14b8a6" }}>
+                Web Developer - Intern
+              </h2>
+              <h5 className="vertical-timeline-element-subtitle">
+                JKS Info Tech Pvt Ltd
+              </h5>
+              <p className="mt-0">
+                Built a Business Listing Application using .NET framework.
+              </p>
+            </VerticalTimelineElement>
+            <VerticalTimelineElement
+              contentStyle={{
+                background: "#1E293B",
+                color: "#F1F5F9",
+                border: "#F1F5F9",
+              }}
+              contentArrowStyle={{ borderRight: "7px solid #F1F5F9" }}
+              date="Dec 2020 - Apr 2021"
+              iconStyle={{ background: "#0F172A", color: "#fff" }}
+            >
+              <h2 className="text-xl mb-1.5" style={{ color: "#14b8a6" }}>
+                Mentorship Co-Ordinator - HR
+              </h2>
+              <h5 className="vertical-timeline-element-subtitle">Pattarai</h5>
+              <p className="mt-0">
+                Co-Ordinated with 21 mentors and 44 mentees and mentored 2
+                mentees personally.
+              </p>
+            </VerticalTimelineElement>
+            <VerticalTimelineElement
+              contentStyle={{
+                background: "#1E293B",
+                color: "#F1F5F9",
+                border: "#F1F5F9",
+              }}
+              contentArrowStyle={{ borderRight: "7px solid #F1F5F9" }}
+              date="Nov 2020 - Present"
+              iconStyle={{ background: "#0F172A", color: "#fff" }}
+            >
+              <h2 className="text-xl mb-1.5" style={{ color: "#14b8a6" }}>
+                Software Developer II
+              </h2>
+              <h5 className="vertical-timeline-element-subtitle">Pattarai</h5>
+              <p className="mt-0">
+                Developing an ERP suite for Pattarai club named Cortex.
+              </p>
+            </VerticalTimelineElement>
+            <VerticalTimelineElement
+              contentStyle={{
+                background: "#1E293B",
+                color: "#F1F5F9",
+                border: "#F1F5F9",
+              }}
+              contentArrowStyle={{ borderRight: "7px solid #F1F5F9" }}
+              date="JuL 2020 - Oct 2021"
+              iconStyle={{ background: "#0F172A", color: "#fff" }}
+            >
+              <h2 className="text-xl mb-1.5" style={{ color: "#14b8a6" }}>
+                Web Developer - Intern
+              </h2>
+              <h5 className="vertical-timeline-element-subtitle">
+                Licet Pattarai
+              </h5>
+              <p className="mt-0">
+                Developed a Smart Thermometer Module integrated with college
+                ERP.
+              </p>
+            </VerticalTimelineElement>
+            <VerticalTimelineElement
+              contentStyle={{
+                background: "#1E293B",
+                color: "#F1F5F9",
+                border: "#F1F5F9",
+              }}
+              contentArrowStyle={{ borderRight: "7px solid #F1F5F9" }}
+              date="Jun 2020 - Nov 2021"
+              iconStyle={{ background: "#0F172A", color: "#fff" }}
+            >
+              <h2 className="text-xl mb-1.5" style={{ color: "#14b8a6" }}>
+                Student Relations
+              </h2>
+              <h5 className="vertical-timeline-element-subtitle">Pattarai</h5>
+              <p className="mt-0">
+                Served the role of Activities Monitor for the Crew Members.
+              </p>
+            </VerticalTimelineElement>
+          </VerticalTimeline>
+        </div>
+
         {/* <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
           <motion.div variants={fadeIn4}>
             <div className={containerClasses} id="achievements">
@@ -407,41 +566,28 @@ export default function Home() {
               <div className="h-8 lg:h-12" />
               <div className="flex flex-wrap md:-mx-6">
                 <div className={CardGrid}>
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                  <LinkCard
+                    title="Loyola Icam College of Engineering and Technology"
+                    link="https://www.licet.ac.in/"
                   >
-                    <LinkCard
-                      title="Loyola Icam College of Engineering and Technology"
-                      link="https://www.licet.ac.in/"
-                    >
-                      To form responsible engineers, who would engineer a just
-                      society!
-                    </LinkCard>
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                    To form responsible engineers, who would engineer a just
+                    society!
+                  </LinkCard>
+
+                  <LinkCard title="Pattarai" link="https://www.pattarai.in/">
+                    "PATTARAI" is LICET's flagship project club, equipping
+                    students with contemporary technical skills needed to face
+                    the industry. Pattarai encourages students to learn by
+                    working on real-life projects!
+                  </LinkCard>
+
+                  <LinkCard
+                    title="ST. Ursula'S Anglo-Indian Higher Secondary School, Chruch Park"
+                    link="https://stursulaschurchpark.com/index.php"
                   >
-                    <LinkCard title="Pattarai" link="https://www.pattarai.in/">
-                      "PATTARAI" is LICET's flagship project club, equipping
-                      students with contemporary technical skills needed to face
-                      the industry. Pattarai encourages students to learn by
-                      working on real-life projects!
-                    </LinkCard>
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <LinkCard
-                      title="ST. Ursula'S Anglo-Indian Higher Secondary School, Chruch Park"
-                      link="https://stursulaschurchpark.com/index.php"
-                    >
-                      School Motto : For Faith and Morals School Colour : Green
-                      and Gold
-                    </LinkCard>
-                  </motion.button>
+                    School Motto : For Faith and Morals School Colour : Green
+                    and Gold
+                  </LinkCard>
                 </div>
               </div>
             </div>
@@ -450,7 +596,16 @@ export default function Home() {
 
         <div className={containerClasses} id="contact">
           <SectionTitle accentText="05" title="Contact Me" />
-          <div className="font-mono text-blueGray-400 sm:text-lg md:text-xl">
+          <div className=" text-blueGray-400 sm:text-lg md:text-xl">
+            <a
+              className="link"
+              href="/Raksha-Resume.pdf"
+              target="_blank"
+              download
+            >
+              Resume
+            </a>{" "}
+            ·{" "}
             <a
               className="link"
               href="mailto:raksha.23it@licet.ac.in"
@@ -492,10 +647,9 @@ export default function Home() {
             src="https://titanembeds.com/embed/812595628143411250?css=24&scrollbartheme=rounded-dots-dark&noscroll=true&theme=MetroEdge"
           ></iframe>
         </div>
-        {/* <FluidAnimation style={{ height: "60%" }} /> */}
         <CitySvg />
         <div className={lastContainerClasses}>
-          <div className="font-mono text-blueGray-400 text-xs md:text-sm lg:text-base ">
+          <div className="text-blueGray-400 text-xs md:text-sm lg:text-base">
             ©Raksha - 2021. Website Under - Construction
           </div>
         </div>

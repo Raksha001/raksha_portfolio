@@ -54,3 +54,26 @@
 .house.active text {
   fill: #fff;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  background-color: #131313;
+}
+
+.vertical-timeline::before {
+  background: #14b8a6 !important;
+}
+
+@media only screen and (min-width: 1170px) {
+  .vertical-timeline.vertical-timeline--two-columns {
+    width: 100% !important;
+  }
+}
+.vertical-timeline {
+  width: 100% !important;
+  max-width: 1170px;
+  margin: 0 !important;
+  position: relative;
+  padding: 2em 0;
+}
