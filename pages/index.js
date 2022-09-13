@@ -641,16 +641,16 @@ export default function Home() {
           <div className="text-body-container py-3">
             <p>Drop into my Discord PM!</p>
           </div>
-          <iframe
+          /* <iframe
             className="w-full py-3 border-0"
             height="500px"
             src="https://titanembeds.com/embed/812595628143411250?css=24&scrollbartheme=rounded-dots-dark&noscroll=true&theme=MetroEdge"
-          ></iframe>
+          ></iframe> */
         </div>
         <CitySvg />
         <div className={lastContainerClasses}>
           <div className="text-blueGray-400 text-xs md:text-sm lg:text-base">
-            ©Raksha - 2021. Website Under - Construction
+            ©Raksha - 2022. Website Under - Construction
           </div>
         </div>
       </div>
