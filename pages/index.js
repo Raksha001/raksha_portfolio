@@ -638,10 +638,10 @@ export default function Home() {
               Instagram
             </a>
           </div>
-          <div className="text-body-container py-3">
+           /* <div className="text-body-container py-3">
             <p>Drop into my Discord PM!</p>
           </div>
-          /* <iframe
+          <iframe
             className="w-full py-3 border-0"
             height="500px"
             src="https://titanembeds.com/embed/812595628143411250?css=24&scrollbartheme=rounded-dots-dark&noscroll=true&theme=MetroEdge"
